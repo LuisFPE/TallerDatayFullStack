@@ -1,0 +1,7 @@
+POST: http://127.0.0.1:5000/predict?surface=100&bedrooms=4&restrooms=2
+
+{
+  "surface": 100,
+  "bedrooms": 3,
+  "restrooms": 2
+}
