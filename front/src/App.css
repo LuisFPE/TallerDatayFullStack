@@ -58,3 +58,80 @@
 .read-the-docs {
   color: #888;
 }
+
+.input {
+  max-width: 190px;
+  height: 44px;
+  background-color: #05060f0a;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.label {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .9rem;
+  font-weight: bold;
+  color: #05060f99;
+  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.input:hover, .input:focus, .input-group:hover .input {
+  outline: none;
+  border-color: #05060f;
+}
+
+.input-group:hover .label, .input:focus {
+  color: #05060fc2;
+}
+
+button {
+  --color: #0077ff;
+  font-family: inherit;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+  padding-bottom: 50px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+button::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+button:hover {
+  color: white;
+}
+
+button:before {
+  top: 100%;
+  left: 100%;
+  transition: 0.3s all;
+}
+
+button:hover::before {
+  top: -30px;
+  left: -30px;
+}
