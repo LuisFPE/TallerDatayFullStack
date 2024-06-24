@@ -25,13 +25,13 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("inputs",inputs)
     const response = await fetch('http://localhost:5000/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(multipleInputs)
+      body: JSON.stringify(inputs)
     });
 
     const data = await response.json();
@@ -39,8 +39,8 @@ function App() {
     console.log(data.prediction)
     setPrediction(data.prediction);
 
-    const graph = JSON.parse(data.graph);
-    setGraph(graph);
+/*     const graph = JSON.parse(data.graph);
+    setGraph(graph); */
   };
 
   const handleSave = async (e) => {
@@ -92,9 +92,9 @@ function App() {
       {prediction && (
         <section className="prediction">
         <h2>Predicted Price: </h2>
-        {prediction.map((price, index) => (
-          <p key={index}>{parseFloat(price).toFixed(2)}€</p>
-        ))}
+
+          <p >{parseFloat(prediction).toFixed(2)}€</p>
+
       </section>
 
       )}
