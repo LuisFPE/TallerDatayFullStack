@@ -1,0 +1,23 @@
+# Usa una imagen base oficial de Python
+FROM python:3.10-slim
+
+# Establece el directorio de trabajo en /app
+WORKDIR /data_full
+
+# Copia el archivo de requerimientos a la imagen
+COPY requirements.txt requirements.txt
+
+# Instala las dependencias especificadas en requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el contenido actual del directorio al directorio de trabajo en el contenedor
+COPY . /data_full/
+
+# Exponer el puerto en el que se ejecutará la aplicación
+EXPOSE 5000
+
+# Comando por defecto para ejecutar el script
+CMD ["python", "app.py"]
+
+#To create the image use <docker build -t humorify-app .>
+#To run the container use <docker run -p 4000:5000 humorify-app>
